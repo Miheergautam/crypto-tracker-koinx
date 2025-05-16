@@ -5,9 +5,8 @@ import cors from "cors";
 
 import statsRoutes from "./src/routes/stats.js";
 import deviationRoutes from "./src/routes/deviation.js"
-import { storeCryptoStats } from "./src/services/cryptoService.js";
 
-import { startConsumer } from "./src/kafkaConsumer.js";
+import { startConsumer } from "./src/services/kafkaConsumer.js";
 
 dotenv.config();
 const app = express();

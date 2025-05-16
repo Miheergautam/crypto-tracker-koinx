@@ -1,5 +1,5 @@
 import { Kafka } from "kafkajs";
-import { storeCryptoStats } from "./services/cryptoService.js";
+import { storeCryptoStats } from "./cryptoService.js";
 
 const kafka = new Kafka({
   clientId: "api-server",
