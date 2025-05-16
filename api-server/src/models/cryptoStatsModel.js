@@ -6,8 +6,7 @@ const CryptoStatSchema = new mongoose.Schema({
   usd_market_cap: { type: Number },
   usd_24h_vol: { type: Number },
   usd_24h_change: { type: Number },
-  timestamp: { type: Date, default: Date.now },
-});
+},{timestamps:true});
 
 const CryptoStats = mongoose.model("CryptoStat", CryptoStatSchema);
 

@@ -16,7 +16,6 @@ export const storeCryptoStats = async () => {
       include_24hr_vol: "true",
     },
   });
-  console.log(data);
 
   for (const coin of ids) {
     await CryptoStat.create({
@@ -25,7 +24,6 @@ export const storeCryptoStats = async () => {
       usd_market_cap: data[coin].usd_market_cap,
       usd_24h_change: data[coin].usd_24h_change,
       usd_24h_vol: data[coin].usd_24h_vol,
-      createdAt: new Date(),
     });
   }
 };

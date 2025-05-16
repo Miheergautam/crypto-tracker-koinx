@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 
 import statsRoutes from "./src/routes/stats.js";
+import deviationRoutes from "./src/routes/deviation.js"
 import { storeCryptoStats } from "./src/services/cryptoService.js";
 
 dotenv.config();
@@ -14,6 +15,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/stats", statsRoutes);
+app.use("/deviation", deviationRoutes);
 
 mongoose
   .connect(process.env.MONGODB_URI)
