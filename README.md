@@ -26,6 +26,14 @@ docker-compose up -d
 
 3. Set up MongoDB Atlas and update `.env` files in both servers.
 
+### Environment Variables
+`.env` file:
+```
+MONGO_URI=your_mongodb_uri
+PORT=your_port_no
+COINGECKO_BASE_URL=https://api.coingecko.com/api/v3
+```
+
 4. Start both servers in separate terminals:
 ```bash
 # In one terminal
@@ -75,13 +83,7 @@ Response:
 * Topic: `crypto-tracker-topic`
 * Listens for message `{ "trigger": "update" }` to run `storeCryptoStats()`.
 
-### Environment Variables
-`.env` file:
-```
-MONGO_URI=your_mongodb_uri
-PORT=your_port_no
-COINGECKO_BASE_URL=https://api.coingecko.com/api/v3
-```
+
 
 ## Worker Server Details
 
