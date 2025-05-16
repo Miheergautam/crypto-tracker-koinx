@@ -17,6 +17,11 @@ app.use(express.json());
 app.use("/stats", statsRoutes);
 app.use("/deviation", deviationRoutes);
 
+// Catch all unmatched routes
+app.use((req, res) => {
+  res.status(404).json({ message: "Route not found" });
+});
+
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(async () => {
