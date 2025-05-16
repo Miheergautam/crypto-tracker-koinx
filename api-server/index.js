@@ -7,6 +7,8 @@ import statsRoutes from "./src/routes/stats.js";
 import deviationRoutes from "./src/routes/deviation.js"
 import { storeCryptoStats } from "./src/services/cryptoService.js";
 
+import { startConsumer } from "./src/kafkaConsumer.js";
+
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -26,8 +28,14 @@ mongoose
   .connect(process.env.MONGODB_URI)
   .then(async () => {
     console.log("Connected to MongoDB");
-    await storeCryptoStats();
-    console.log("Saved successfully");
+    
+    // Start Kafka consumer after DB connection
+    await startConsumer();
+
+    // Optionally run initial stats fetch on startup
+    // await storeCryptoStats();
+
+    console.log("API Server ready");
   })
   .catch((err) => {
     console.error("MongoDB connection error:", err);
